@@ -1,9 +1,7 @@
-
-
 const Statistics = () => {
     return (
         <div>
-            <h2>Welcom to statistics page</h2>
+            <h2 className="text-[red]">Welcom to statistics page</h2>
         </div>
     );
 };

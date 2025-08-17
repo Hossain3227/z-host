@@ -39,15 +39,15 @@ export const router = createBrowserRouter([
     children:[
       {
         index:true,
-        element:<Statistics></Statistics>
+        element:<Statistics></Statistics>,
       },
       {
-        path:'addroom',
-        element:<AddRoom></AddRoom>
+        path:'add-room',
+        element:<AddRoom></AddRoom>,
       },
       {
-        path:'mylisting',
-        element:<Mylistings></Mylistings>
+        path:'my-listings',
+        element:<Mylistings></Mylistings>,
       },
     ],
   },
