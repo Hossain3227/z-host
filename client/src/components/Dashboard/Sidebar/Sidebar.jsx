@@ -14,8 +14,9 @@ import MenuItem from './Menu/MenuItem'
 
 import AdminMenu from './Menu/AdminMenu'
 import GuestMenu from './Menu/GuestMenu'
-import ToggleBtn from '../../Shared/Button/ToggleBtn'
+
 import HostMenu from './Menu/Hostmenu'
+import ToggleBtn from '../../Shared/Button/ToggleBtn'
 
 const Sidebar = () => {
   const { logOut } = useAuth()
