@@ -8,8 +8,13 @@ import RoomDetails from '../pages/RoomDetails/RoomDetails'
 import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
 import Statistics from '../pages/Dashboard/Common/Statistics'
-import Mylistings from '../pages/Dashboard/Host/Mylistings'
+
 import AddRoom from '../pages/Dashboard/Host/AddRoom'
+import HostRoute from './HostRoute'
+import MyListings from '../pages/Dashboard/Host/Mylistings'
+import AdminRoute from './AdminRoute'
+import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
+import MyBookings from '../pages/Dashboard/Guest/MyBookings'
 
 export const router = createBrowserRouter([
   {
@@ -35,19 +40,49 @@ export const router = createBrowserRouter([
   { path: '/signup', element: <SignUp /> },
   {
     path:'/dashboard',
-    element:<DashboardLayout></DashboardLayout>,
+    element: <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>,
     children:[
       {
         index:true,
-        element:<Statistics></Statistics>,
+        element:<PrivateRoute>
+            <Statistics />
+          </PrivateRoute>,
       },
       {
         path:'add-room',
-        element:<AddRoom></AddRoom>,
+        element:<PrivateRoute>
+            <HostRoute>
+              <AddRoom />
+            </HostRoute>
+          </PrivateRoute>,
       },
       {
         path:'my-listings',
-        element:<Mylistings></Mylistings>,
+        element:<PrivateRoute>
+            <HostRoute>
+              <MyListings />
+            </HostRoute>
+          </PrivateRoute>,
+      },
+      {
+        path: 'manage-users',
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <ManageUsers />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'my-bookings',
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
     ],
   },
