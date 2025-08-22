@@ -3,8 +3,9 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
+import UserDataRow from '../../../components/Dashboard/Sidebar/TableRows/UserDataRow'
 
-import UserDataRow from '../../../components/Dashboard/TableRows/UserDataRow'
+
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure()
   //   Fetch users Data

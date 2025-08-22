@@ -9,6 +9,7 @@ import {
 } from '@headlessui/react'
 import DeleteModal from '../../../Modal/DeleteModal'
 
+
 const RoomDataRow = ({ room, handleDelete }) => {
   // for delete modal
   let [isOpen, setIsOpen] = useState(false)

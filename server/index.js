@@ -75,8 +75,8 @@ async function run() {
 
       next()
     }
-    
-     // auth related api
+
+    // auth related api
     app.post('/jwt', async (req, res) => {
       const user = req.body
       const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
@@ -109,6 +109,7 @@ async function run() {
     // save a user data in db
     app.put('/user', async (req, res) => {
       const user = req.body
+
       const query = { email: user?.email }
       // check if user already exists in db
       const isExist = await usersCollection.findOne(query)
@@ -137,7 +138,18 @@ async function run() {
       res.send(result)
     })
 
+    // get a user info by email from db
+    app.get('/user/:email', async (req, res) => {
+      const email = req.params.email
+      const result = await usersCollection.findOne({ email })
+      res.send(result)
+    })
 
+    // get all users data from db
+    app.get('/users', verifyToken, verifyAdmin, async (req, res) => {
+      const result = await usersCollection.find().toArray()
+      res.send(result)
+    })
 
     //update a user role
     app.patch('/users/update/:email', async (req, res) => {
@@ -150,14 +162,6 @@ async function run() {
       const result = await usersCollection.updateOne(query, updateDoc)
       res.send(result)
     })
-
-
-    // get all users data from db
-    app.get('/users', verifyToken, verifyAdmin, async (req, res) => {
-      const result = await usersCollection.find().toArray()
-      res.send(result)
-    })
-
 
     // Get all rooms from db
     app.get('/rooms', async (req, res) => {
@@ -190,7 +194,6 @@ async function run() {
       }
     )
 
-    
     // delete a room
     app.delete('/room/:id', verifyToken, verifyHost, async (req, res) => {
       const id = req.params.id
@@ -207,6 +210,8 @@ async function run() {
       res.send(result)
     })
 
+
+   
     // Send a ping to confirm a successful connection
     await client.db('admin').command({ ping: 1 })
     console.log(

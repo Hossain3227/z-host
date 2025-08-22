@@ -1,12 +1,13 @@
 import { BsFingerprint } from 'react-icons/bs'
 import { GrUserAdmin } from 'react-icons/gr'
 import { useState } from 'react'
-import MenuItem from './/MenuItem'
-import useRole from '../../../../hooks/useRole'
-import HostModal from '../../../Modal/HostRequestModal.jsx'
-import useAxiosSecure from '../../../../hooks/useAxiosSecure'
+import HostModal from '../../../Modal/HostRequestModal'
 import toast from 'react-hot-toast'
-import useAuth from '../../../../hooks/useAuth.js'
+import useAxiosSecure from '../../../../hooks/useAxiosSecure'
+import useAuth from '../../../../hooks/useAuth'
+import useRole from '../../../../hooks/useRole'
+import MenuItem from './MenuItem'
+
 const GuestMenu = () => {
   const axiosSecure = useAxiosSecure()
   const { user } = useAuth()
