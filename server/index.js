@@ -233,6 +233,80 @@ async function run() {
       res.send(result)
     })
 
+    // Save a booking data in db
+    app.post('/booking', verifyToken, async (req, res) => {
+      const bookingData = req.body
+      // save room booking info
+      const result = await bookingsCollection.insertOne(bookingData)
+      // send email to guest
+      sendEmail(bookingData?.guest?.email, {
+        subject: 'Booking Successful!',
+        message: `You've successfully booked a room through StayVista. Transaction Id: ${bookingData.transactionId}`,
+      })
+      // send email to host
+      sendEmail(bookingData?.host?.email, {
+        subject: 'Your room got booked!',
+        message: `Get ready to welcome ${bookingData.guest.name}.`,
+      })
+
+      res.send(result)
+    })
+
+    // update room data
+    app.put('/room/update/:id', verifyToken, verifyHost, async (req, res) => {
+      const id = req.params.id
+      const roomData = req.body
+      const query = { _id: new ObjectId(id) }
+      const updateDoc = {
+        $set: roomData,
+      }
+      const result = await roomsCollection.updateOne(query, updateDoc)
+      res.send(result)
+    })
+
+    // update Room Status
+    app.patch('/room/status/:id', async (req, res) => {
+      const id = req.params.id
+      const status = req.body.status
+      // change room availability status
+      const query = { _id: new ObjectId(id) }
+      const updateDoc = {
+        $set: { booked: status },
+      }
+      const result = await roomsCollection.updateOne(query, updateDoc)
+      res.send(result)
+    })
+
+    // get all booking for a guest
+    app.get('/my-bookings/:email', verifyToken, async (req, res) => {
+      const email = req.params.email
+      const query = { 'guest.email': email }
+      const result = await bookingsCollection.find(query).toArray()
+      res.send(result)
+    })
+
+    // get all booking for a host
+    app.get(
+      '/manage-bookings/:email',
+      verifyToken,
+      verifyHost,
+      async (req, res) => {
+        const email = req.params.email
+        const query = { 'host.email': email }
+        const result = await bookingsCollection.find(query).toArray()
+        res.send(result)
+      }
+    )
+
+    // delete a booking
+    app.delete('/booking/:id', verifyToken, async (req, res) => {
+      const id = req.params.id
+      const query = { _id: new ObjectId(id) }
+      const result = await bookingsCollection.deleteOne(query)
+      res.send(result)
+    })
+
+
 
    
     // Send a ping to confirm a successful connection
