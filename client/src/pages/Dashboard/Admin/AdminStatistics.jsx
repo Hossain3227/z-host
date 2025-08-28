@@ -1,10 +1,11 @@
 import { Calendar } from 'react-date-range'
 import { FaUserAlt, FaDollarSign } from 'react-icons/fa'
 import { BsFillCartPlusFill, BsFillHouseDoorFill } from 'react-icons/bs'
-import SalesLineChart from '../../../components/Dashboard/SalesLineChart'
+
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
+import SalesLineChart from '../../../components/Dashboard/Sidebar/SalesLineChart'
 
 const AdminStatistics = () => {
   const axiosSecure = useAxiosSecure()

@@ -10,7 +10,9 @@ import { format } from 'date-fns'
 import { Fragment } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
-import CheckoutForm from '../Form/CheckOutForm'
+import CheckoutForm from '../Form/CheckoutForm'
+
+
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY)
 

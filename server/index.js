@@ -279,7 +279,7 @@ async function run() {
       // send email to guest
       sendEmail(bookingData?.guest?.email, {
         subject: 'Booking Successful!',
-        message: `You've successfully booked a room through StayVista. Transaction Id: ${bookingData.transactionId}`,
+        message: `You've successfully booked a room through z-host. Transaction Id: ${bookingData.transactionId}`,
       })
       // send email to host
       sendEmail(bookingData?.host?.email, {

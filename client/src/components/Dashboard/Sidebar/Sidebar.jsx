@@ -35,7 +35,7 @@ const Sidebar = () => {
             <Link to='/'>
               <img
                 // className='hidden md:block'
-                src='https://i.ibb.co/4ZXzmq5/logo.png'
+                src='https://i.ibb.co.com/TxSLm89k/1756274377.png'
                 alt='logo'
                 width='100'
                 height='100'
@@ -64,7 +64,7 @@ const Sidebar = () => {
               <Link to='/'>
                 <img
                   // className='hidden md:block'
-                  src='https://i.ibb.co/4ZXzmq5/logo.png'
+                  src='https://i.ibb.co.com/TxSLm89k/1756274377.png'
                   alt='logo'
                   width='100'
                   height='100'

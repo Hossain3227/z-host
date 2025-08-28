@@ -7,8 +7,10 @@ import {
   DialogPanel,
   DialogTitle,
 } from '@headlessui/react'
-import DeleteModal from '../../Modal/DeleteModal'
-import UpdateRoomModal from '../../Modal/UpdateRoomModal'
+// import DeleteModal from '../../Modal/DeleteModal'
+import DeleteModal from '../../../Modal/DeleteModal'
+// import UpdateRoomModal from '../../Modal/UpdateRoomModal'
+import UpdateRoomModal from '../../../Modal/UpdateRoomModal'
 const RoomDataRow = ({ room, handleDelete, refetch }) => {
   // for delete modal
   const [isOpen, setIsOpen] = useState(false)

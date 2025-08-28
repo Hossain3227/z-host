@@ -1,7 +1,8 @@
 import { Chart } from 'react-google-charts'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import LoadingSpinner from '../Shared/LoadingSpinner'
+import LoadingSpinner from '../../Shared/LoadingSpinner'
+
 
 const options = {
   title: 'Sales Over Time',

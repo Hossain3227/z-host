@@ -2,11 +2,12 @@ import { Calendar } from 'react-date-range'
 import { FaDollarSign } from 'react-icons/fa'
 import { BsFillCartPlusFill, BsFillHouseDoorFill } from 'react-icons/bs'
 import { GiPlayerTime } from 'react-icons/gi'
-import SalesLineChart from '../../../components/Dashboard/SalesLineChart'
+
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
 import { formatDistanceToNow } from 'date-fns'
+import SalesLineChart from '../../../components/Dashboard/Sidebar/SalesLineChart'
 const HostStatistics = () => {
   const axiosSecure = useAxiosSecure()
   // Fetch host Stat Data here

@@ -51,7 +51,7 @@ const Navbar = () => {
             <Link to='/'>
               <img
                 // className='hidden md:block'
-                src='https://i.ibb.co/4ZXzmq5/logo.png'
+                src='https://i.ibb.co.com/QFfkjy6B/1756273893.png'
                 alt='logo'
                 width='100'
                 height='100'
