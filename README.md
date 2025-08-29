@@ -31,7 +31,7 @@ A  booking platform built with the MERN stack, featuring role-based access and s
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/stayease.git
+   git clone https://github.com/your-username/z-host.git
    cd stayease
    ```
 
